@@ -33,10 +33,15 @@ def cityreader(cities=[]):
             'c:/Users/ajadi/Documents/Lambda/LambdaGithub/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv'
     ) as cities_file:
         csv_reader = csv.reader(cities_file, delimiter=",")
+        line_count = 0
         for row in csv_reader:
-            city = row[0], row[3], row[4]
+            if line_count == 0:
+                pass
+                line_count += 1
+            else:
+                city = row[0], float(row[3]), float(row[4])
 
-            cities.append(city)
+                cities.append(city)
 
     return cities
 
